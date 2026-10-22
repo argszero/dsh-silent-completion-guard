@@ -5,8 +5,14 @@ empty-response failure, so a turn retries or fails loudly instead of ending
 "completed" with nothing to show.
 
 ```sh
-npm i github:argszero/dsh-silent-completion-guard
+dsh plugin --profile <profile> add github:argszero/dsh-silent-completion-guard
 ```
+
+That one command installs the package into the profile and adds it to the
+profile's bundle list. Installing alone is **inert**: a bundle becomes a layer
+only when the profile's `package.json` lists it under `dsh.profile.bundles`
+(`packages/boot/app-boot/src/profile.ts`), and the plugin manager is what writes
+that list after an install (`packages/boot/plugin-manager/src/operations.ts`).
 
 ## The gap it covers
 
