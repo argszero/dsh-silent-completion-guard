@@ -1,0 +1,49 @@
+{
+  "name": "@argszero/dsh-silent-completion-guard",
+  "version": "0.1.0",
+  "description": "Report a reasoning-only model stop as an empty response, so a turn retries or fails loudly instead of completing with no visible reply.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "cordis",
+    "deepseek-harness",
+    "llm",
+    "stream",
+    "empty-response"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/argszero/dsh-silent-completion-guard.git"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-llm": "^0.2.1-rc.2"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "^4.0.5",
+    "@deepseek-ai/dsh-llm": "0.2.1-rc.2"
+  },
+  "scripts": {
+    "test": "node --test test/*.spec.mjs",
+    "smoke": "node scripts/mount-smoke.mjs",
+    "mutation": "node scripts/inject-defects.mjs"
+  }
+}

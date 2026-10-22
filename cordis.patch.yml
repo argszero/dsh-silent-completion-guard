@@ -1,0 +1,3 @@
+- insert:
+    - id: silent-completion-guard
+      name: '@argszero/dsh-silent-completion-guard'
